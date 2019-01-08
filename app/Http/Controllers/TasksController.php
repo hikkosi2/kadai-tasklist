@@ -79,12 +79,17 @@ class TasksController extends Controller
     public function show($id)
     {
         $task = Task::find($id);
-
+        
+        if (\Auth::id() === $task->user_id) {
+        
         return view('tasks.show', [
             'task' => $task,
         ]);
+        }return view('welcome');
+    
     }
 
+    
     /**
      * Show the form for editing the specified resource.
      *
