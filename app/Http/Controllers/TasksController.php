@@ -59,15 +59,12 @@ class TasksController extends Controller
         ]);
         
         $request->user()->tasks()->create([
-
            'status' => $request->status,
-
            'content' => $request->content,
-
        ]);
         
 
-        return redirect('/');
+        return view('tasks.show',$request);
     }
 
     /**
@@ -85,7 +82,7 @@ class TasksController extends Controller
         return view('tasks.show', [
             'task' => $task,
         ]);
-        }return view('welcome');
+        }return view('/');
     
     }
 
